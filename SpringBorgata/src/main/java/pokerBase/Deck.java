@@ -35,6 +35,10 @@ public class Deck {
 						Card NewCard = new Card(SuitValue, RankValue, true);
 						//NewCard.setWild();
 						MakingDeck.add(NewCard);
+					} else {
+						eRank RankValue = eRank.values()[j];
+						Card NewCard = new Card(SuitValue, RankValue, (13 * i) + j + 1);
+						MakingDeck.add(NewCard);
 					}
 				} else {
 					eRank RankValue = eRank.values()[j];

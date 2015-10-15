@@ -73,6 +73,9 @@ public class Deck_Test {
 	@Test
 	public void TestWildDeck() {
 		Deck d1 = new Deck(true);
+		
+		System.out.println(d1.getTotalCards());
+		assertTrue(d1.getTotalCards() == 52);
 		assertTrue(checkWilds(d1));
 	}
 	
