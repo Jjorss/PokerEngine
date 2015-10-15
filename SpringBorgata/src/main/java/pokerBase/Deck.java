@@ -3,6 +3,7 @@ package pokerBase;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -14,33 +15,53 @@ import pokerEnums.eSuit;
 
 @XmlRootElement
 public class Deck {
-	
-	@XmlElement (name="Remaining Card")
+
+	@XmlElement(name = "Remaining Card")
 	private ArrayList<Card> cards;
+	private int wildCard;
+	private Random r = new Random();
 
-	public Deck() {
-
-		//	Create an ArrayList of Cards, add each card
+	public Deck(Boolean wildCard) {
+		// Create an ArrayList of Cards, add each card
 		ArrayList<Card> MakingDeck = new ArrayList<Card>();
+		int rank = r.nextInt(12) + 1;
 		for (short i = 0; i <= 3; i++) {
-			eSuit SuitValue = eSuit.values()[i];			
+			eSuit SuitValue = eSuit.values()[i];
 			for (short j = 0; j <= 12; j++) {
-				eRank RankValue = eRank.values()[j];				
-				Card NewCard = new Card(SuitValue,RankValue, (13 * i) + j+1);
-				MakingDeck.add(NewCard);
+				if(wildCard) {
+					if(j == rank) {
+						this.setWildCard(j);
+						eRank RankValue = eRank.values()[j];
+						Card NewCard = new Card(SuitValue, RankValue, true);
+						//NewCard.setWild();
+						MakingDeck.add(NewCard);
+					}
+				} else {
+					eRank RankValue = eRank.values()[j];
+					Card NewCard = new Card(SuitValue, RankValue, (13 * i) + j + 1);
+					MakingDeck.add(NewCard);
+				}
 			}
 		}
-		//	Set the instance variable
+		// Set the instance variable
 		cards = MakingDeck;
 		ShuffleCards();
 
 	}
-	
 
-	
-	private void ShuffleCards()
-	{
-		//	Shuffle the cards
+	public Deck(int numberOfJokers, Boolean wildCard) {
+		this(wildCard);
+
+		for (short k = 0; k < numberOfJokers; k++) {
+			Card joker = new Card(eSuit.JOKER, eRank.JOKER, k + 1);
+			cards.add(joker);
+		}
+
+		ShuffleCards();
+	}
+
+	private void ShuffleCards() {
+		// Shuffle the cards
 		Collections.shuffle(cards);
 	}
 
@@ -55,29 +76,32 @@ public class Deck {
 		// Returns the total number of cards still in the deck
 		return cards.size();
 	}
-	
-	public ArrayList<Card> getCards()
-	{
+
+	public ArrayList<Card> getCards() {
 		return this.cards;
 	}
-	
-	public StringWriter SerializeMe()
-	{
-	    StringWriter sw = new StringWriter();
-		try
-		{
-		    //Write it
-		    JAXBContext ctx = JAXBContext.newInstance(Deck.class);
-		    Marshaller m = ctx.createMarshaller();
-		    m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		    m.marshal(this, sw);
-		    sw.close();			
+
+	public StringWriter SerializeMe() {
+		StringWriter sw = new StringWriter();
+		try {
+			// Write it
+			JAXBContext ctx = JAXBContext.newInstance(Deck.class);
+			Marshaller m = ctx.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			m.marshal(this, sw);
+			sw.close();
+		} catch (Exception ex) {
+
 		}
-		catch (Exception ex)
-		{
-			
-		}
-    
-    return sw;
+
+		return sw;
+	}
+
+	public int getWildCard() {
+		return wildCard;
+	}
+
+	public void setWildCard(int wildCard) {
+		this.wildCard = wildCard;
 	}
 }

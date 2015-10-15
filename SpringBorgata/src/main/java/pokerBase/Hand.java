@@ -31,7 +31,7 @@ public class Hand {
 	private boolean Flush;
 	private boolean Straight;
 	private boolean Ace;
-	private static Deck dJoker = new Deck();
+	private static Deck dJoker = new Deck(2, false);
 
 	public Hand()
 	{
@@ -106,7 +106,7 @@ public class Hand {
 
 	public static Hand EvalHand(ArrayList<Card> SeededHand) {
 		
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand(d);
 		h.CardsInHand = SeededHand;
 

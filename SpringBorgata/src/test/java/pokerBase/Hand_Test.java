@@ -36,7 +36,7 @@ public class Hand_Test {
 	
 	@Test
 	public void FiveOfAKind() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
@@ -51,7 +51,7 @@ public class Hand_Test {
 
 	@Test
 	public void RoyalFlush() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.JACK,0));
@@ -65,7 +65,7 @@ public class Hand_Test {
 	}
 	@Test
 	public void StraightFlush() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.JACK,0));
@@ -84,7 +84,7 @@ public class Hand_Test {
 	
 	@Test
 	public void Flush() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.JACK,0));
@@ -100,7 +100,7 @@ public class Hand_Test {
 	}
 	@Test
 	public void Straight() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.JACK,0));
@@ -116,7 +116,7 @@ public class Hand_Test {
 	}
 	@Test
 	public void FourOfAKind_1() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.TEN,0));
@@ -139,7 +139,7 @@ public class Hand_Test {
 
 	@Test
 	public void FourOfAKind_2() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.TEN,0));
@@ -156,7 +156,7 @@ public class Hand_Test {
 
 	@Test
 	public void ThreeOfAKind_1() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.TEN,0));
@@ -172,7 +172,7 @@ public class Hand_Test {
 	}		
 	@Test
 	public void ThreeOfAKind_2() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.TEN,0));
@@ -197,7 +197,7 @@ public class Hand_Test {
 	}		
 	@Test
 	public void ThreeOfAKind_3() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.TEN,0));
@@ -222,7 +222,7 @@ public class Hand_Test {
 	}		
 	@Test
 	public void FullHouse_1() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.TEN,0));
@@ -238,7 +238,7 @@ public class Hand_Test {
 	}		
 	@Test
 	public void FullHouse_2() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.TEN,0));
@@ -255,7 +255,7 @@ public class Hand_Test {
 	
 	@Test
 	public void TwoPair() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.TEN,0));
@@ -276,7 +276,7 @@ public class Hand_Test {
 	}		
 	@Test
 	public void Pair() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.TEN,0));
@@ -307,7 +307,7 @@ public class Hand_Test {
 	
 	@Test
 	public void HighCard() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h = new Hand();
 		h.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.KING,0));
@@ -343,7 +343,7 @@ public class Hand_Test {
 	
 	@Test
 	public void CompareTwoHands() {
-		Deck d = new Deck();
+		Deck d = new Deck(false);
 		Hand h1 = new Hand();
 		h1.AddCardToHand(new Card(eSuit.CLUBS,eRank.TEN,0));
 		h1.AddCardToHand(new Card(eSuit.DIAMONDS,eRank.TEN,0));

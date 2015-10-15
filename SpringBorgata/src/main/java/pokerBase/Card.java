@@ -33,7 +33,6 @@ public final class Card {
 	public Card(eSuit suit, eRank rank, int CardNbr ) {
 		Suit = suit; 
 		Rank = rank; 
-		this.Wild = false;
 		this.CardImg = CardNbr + ".png";
 		
 	}
@@ -42,6 +41,7 @@ public final class Card {
 		Suit = suit; 
 		Rank = rank; 
 		this.Wild = Wild;
+		//this.setWild();
 	}
 	
 	/**
